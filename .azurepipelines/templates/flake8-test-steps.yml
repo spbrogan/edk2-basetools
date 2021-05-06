@@ -2,7 +2,7 @@
 #
 # template file to run flake8 and if error publish log
 #
-# Copyright (c) 2019, Microsoft Corporation
+# Copyright (c) Microsoft Corporation
 # SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 

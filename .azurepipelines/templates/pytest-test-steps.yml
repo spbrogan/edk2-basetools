@@ -2,7 +2,7 @@
 #
 # template for running pytest
 #
-# Copyright (c) 2019, Microsoft Corporation
+# Copyright (c) Microsoft Corporation
 # SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 parameters:
