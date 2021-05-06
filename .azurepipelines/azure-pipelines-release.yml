@@ -1,13 +1,13 @@
 ##
 # Azure Pipeline build file for a releasing to pypi
 
-# Copyright (c) 2019, Microsoft Corporation
+# Copyright (c) Microsoft Corporation
 # SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
-# trigger when a something is pushed to master
+# trigger when a something is pushed to main
 trigger:
-- master
+- main
 
 pr: none  # not a pr target
 

@@ -1,16 +1,16 @@
 ##
 # Azure Pipeline CI build and PR build
 
-# Copyright (c) 2019, Microsoft Corporation
+# Copyright (c) Microsoft Corporation
 # SPDX-License-Identifier: BSD-2-Clause-Patent
 ##
 
-# trigger on master for CI and all PRs for master
+# trigger on main for CI and all PRs for main
 trigger: 
-- master
+- main
 
 pr: 
-- master
+- main
 
 jobs:
 

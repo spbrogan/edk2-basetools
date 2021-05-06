@@ -16,7 +16,7 @@ Versioning follows: aa.bb.cc and is based on tags in git
 
 1. Pass all development tests and checks.
 2. Update the __readme.md__ `Release Version History` section with info on all important changes for this version.  Remove the "-dev" tag from the version about to be released.
-3. Get your changes into master branch (official releases should only be done from the master branch)
+3. Get your changes into main branch (official releases should only be done from the main branch)
 4. Make a git tag for the version that will be released and push tag.  Tag format is v\<Major>.\<Minor>.\<Patch>
 5. Do the release process
 

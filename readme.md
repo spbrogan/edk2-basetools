@@ -4,46 +4,51 @@ This is a Tianocore maintained project consisting of a the python source files t
 
 This is a fundamental package and is required to be used for edk2 builds.
 
-## How to use it
+## Current Status
 
-As it stands right now, this isn't hosted on PyPi, so it needs to be installed locally.
+| Host Type | Toolchain | Branch | Build Status | Test Status | Code Coverage |
+| :-------- | :-------- | :---- | :----- | :---- | :--- |
+| Linux Ubuntu 20.04 | Python 3.9.x | main | [![Build Status](https://dev.azure.com/tianocore/edk2-basetools/_apis/build/status/CI%20-%20Ubuntu?branchName=main)](https://dev.azure.com/tianocore/edk2-basetools/_build/latest?definitionId=56&branchName=main) | ![Azure DevOps tests](https://img.shields.io/azure-devops/tests/tianocore/edk2-basetools/56.svg) | ![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/tianocore/edk2-basetools/56.svg) |
+| Windows Server 2019 | Python 3.9.x | main | [![Build Status](https://dev.azure.com/tianocore/edk2-basetools/_apis/build/status/CI%20-%20Windows?branchName=main)](https://dev.azure.com/tianocore/edk2-basetools/_build/latest?definitionId=54&branchName=main) | ![Azure DevOps tests](https://img.shields.io/azure-devops/tests/tianocore/edk2-basetools/54.svg)| ![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/tianocore/edk2-basetools/54.svg) |
+
+### Current Release
+
+[![PyPI](https://img.shields.io/pypi/v/edk2-basetools.svg)](https://pypi.org/project/edk2-basetools/)
+
+All release information is now tracked with Github
+ [tags](https://github.com/tianocore/edk2-basetools/tags),
+ [releases](https://github.com/tianocore/edk2-basetools/releases) and
+ [milestones](https://github.com/tianocore/edk2-basetools/milestones).
+
+## How to use it for building Tianocore based projects
+
+### Basic usage
+
+In general this should be transparent for you.  Assuming you already have a virtual environment
+for your edk2 repo and you already pip install the *pip-requirements.txt file* then it is up to 
+your build environment to use the correct binwrappers. 
+
+In the tianocore/edk2 repo this is handled by the *BaseTools/toolsetup.bat* or the pytool based 
+descriptors (see BaseTools/BinWrappers/WindowsLike/win_build_tools_path_env.yaml).  These methods
+will use the version installed in your python environment so managing that version is outside
+the scope of this readme.
+
+### Development usage or tools debugging
+
+Because the repos are configured to use the installed version it is just a matter of installing the version
+you want.  Python, pip, and virtual environments make this easy.  
 
 1. Clone the repo locally
-2. Run `pip install -e .` (you might need do this from an admin prompt in windows)
-4. Run edk2_build to make sure it works
-3. Switch to an EDK2 basetools that has the necessary hooks
-
-Right now the only EDK2 that supports this package is https://github.com/matthewfcarlson/edk2/tree/feature/pip-basetools
-This commit: https://github.com/matthewfcarlson/edk2/commit/40bb4778f5edb380c38233399507d00dd47df80d gives you a good idea of how to enable it for your repo if need to enable it.
-
-## Content
-
-The package contains classes and modules that can be used as the building blocks of tools that are relevant to UEFI firmware developers.  These modules should attempt to provide generic support and avoid tightly coupling with specific use cases.  It is expected these modules do not provide direct interaction with the user (through command line interfaces) but instead are intended to be wrapped in other scripts/tools which contains the specific usage and interface.
-
-Examples:
-
-* File parsers for edk2 specific file types.  These parse the file and provide an object for interacting with the content.
-* UEFI specific services for encoding/decoding binary structures.
-* UEFI defined values and interfaces for usage in python
-* Python wrappers for other system cli tools ( signtool, catalog file generation, inf file generation, etc)
-* Python utilities to provide consistent logging, command invocation, path resolution, etc
+2. Check out the version you want and/or make local changes
+3. Open cmd prompt and activate the virtual environment you plan to use for building
+4. Run `pip install -e .` from the folder you cloned into
+5. Build your edk2 based project using the same virtual environment
 
 ## License
 
 All content in this repository is licensed under [BSD-2-Clause Plus Patent License](license.txt).
 
-[![PyPI - License](https://img.shields.io/pypi/l/edk2_pytool_base.svg)](https://pypi.org/project/edk2-pytool-library/)
-
-## Usage
-
-NOTE: It is strongly recommended that you use python virtual environments.  Virtual environments avoid changing the global python workspace and causing conflicting dependencies.  Virtual environments are lightweight and easy to use.  [Learn more](https://docs.python.org/3/library/venv.html)
-
-* To install run `pip install --upgrade edk2-pytool-base`
-* To use in your python code
-
-    ```python
-    from edk2basetools.<module> import <class>
-    ```
+[![PyPI - License](https://img.shields.io/pypi/l/edk2-basetools.svg)](https://pypi.org/project/edk2-basetools/)
 
 ## Contribution Process
 
@@ -60,7 +65,7 @@ For best success please follow the below process.
 3. Contributor creates branch for work in their fork
 4. Contributor makes code changes, writes relevant unit tests, authors documentation and release notes as necessary.
 5. Contributor runs tests locally
-6. Contributor submits PR to master branch of tianocore/edk2-basetools
+6. Contributor submits PR to main branch of tianocore/edk2-basetools
     1. PR reviewers will provide feedback on change.  If any modifications are required, contributor will make changes and push updates.
     2. PR automation will run and validate tests pass
     3. If all comments resolved, maintainers approved, and tests pass the PR will be squash merged and closed by the maintainers.
