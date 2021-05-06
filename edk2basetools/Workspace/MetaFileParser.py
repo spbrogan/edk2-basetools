@@ -168,7 +168,7 @@ class MetaFileParser(object):
         self._Owner = [Owner]
         self._From = From
 
-        # parsr status for parsing
+        # parser status for parsing
         self._ValueList = ['', '', '', '', '']
         self._Scope = []
         self._LineIndex = 0
@@ -1244,7 +1244,7 @@ class DscParser(MetaFileParser):
                             ExtraData=self._CurrentLine + " (<TokenSpaceGuidCName>.<TokenCName>|<PcdValue>)",
                             File=self.MetaFile, Line=self._LineIndex + 1)
 
-        # Validate the datum type of Dynamic Defaul PCD and DynamicEx Default PCD
+        # Validate the datum type of Dynamic Default PCD and DynamicEx Default PCD
         ValueList = GetSplitValueList(self._ValueList[2])
         if len(ValueList) > 1 and ValueList[1] in [TAB_UINT8, TAB_UINT16, TAB_UINT32, TAB_UINT64] \
                               and self._ItemType in [MODEL_PCD_DYNAMIC_DEFAULT, MODEL_PCD_DYNAMIC_EX_DEFAULT]:

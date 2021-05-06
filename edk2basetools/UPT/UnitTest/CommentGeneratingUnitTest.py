@@ -929,14 +929,14 @@ class GenPcdSectionsTest(unittest.TestCase):
         FFE = 'FFE'
 
         Usage = 'CONSUMES'
-        Str = 'commment line 1\ncomment line 2'
+        Str = 'comment line 1\ncomment line 2'
         Object = self.ObjectFactory(ItemType, TSCName, CName, DValue, FFE,
                                     Usage, Str)
         ObjectList.append(Object)
 
         Result = GenPcdSections(ObjectList)
         Expected = '''[Pcd]
-TSCName.CName|DValue|FFE ## CONSUMES # commment line 1 comment line 2'''
+TSCName.CName|DValue|FFE ## CONSUMES # comment line 1 comment line 2'''
         self.assertEqual(Result.strip(), Expected)
 
     #
@@ -951,22 +951,22 @@ TSCName.CName|DValue|FFE ## CONSUMES # commment line 1 comment line 2'''
         FFE = 'FFE'
 
         Usage = 'UNDEFINED'
-        Str = 'commment line 1\ncomment line 2'
+        Str = 'comment line 1\ncomment line 2'
         Object = self.ObjectFactory(ItemType, TSCName, CName, DValue, FFE,
                                     Usage, Str)
         ObjectList.append(Object)
 
         Usage = 'UNDEFINED'
-        Str = 'commment line 3'
+        Str = 'comment line 3'
         Object = self.ObjectFactory(ItemType, TSCName, CName, DValue, FFE,
                                     Usage, Str)
         ObjectList.append(Object)
 
         Result = GenPcdSections(ObjectList)
         Expected = '''[Pcd]
-# commment line 1
+# comment line 1
 # comment line 2
-# commment line 3
+# comment line 3
 TSCName.CName|DValue|FFE'''
         self.assertEqual(Result.strip(), Expected)
 
@@ -982,7 +982,7 @@ TSCName.CName|DValue|FFE'''
         FFE = 'FFE'
 
         Usage = 'UNDEFINED'
-        Str = 'commment line 1\ncomment line 2'
+        Str = 'comment line 1\ncomment line 2'
         Object = self.ObjectFactory(ItemType, TSCName, CName, DValue, FFE,
                                     Usage, Str)
         ObjectList.append(Object)
@@ -994,17 +994,17 @@ TSCName.CName|DValue|FFE'''
         ObjectList.append(Object)
 
         Usage = 'UNDEFINED'
-        Str = 'commment line 3'
+        Str = 'comment line 3'
         Object = self.ObjectFactory(ItemType, TSCName, CName, DValue, FFE,
                                     Usage, Str)
         ObjectList.append(Object)
 
         Result = GenPcdSections(ObjectList)
         Expected = '''[Pcd]
-# commment line 1
+# comment line 1
 # comment line 2
 ## CONSUMES # Foo
-# commment line 3
+# comment line 3
 TSCName.CName|DValue|FFE'''
         self.assertEqual(Result.strip(), Expected)
 
@@ -1024,14 +1024,14 @@ TSCName.CName|DValue|FFE'''
         FFE = 'FFE'
 
         Usage = 'CONSUMES'
-        Str = 'commment line 1\ncomment line 2'
+        Str = 'comment line 1\ncomment line 2'
         Object = self.ObjectFactory(ItemType, TSCName, CName, DValue, FFE,
                                     Usage, Str)
         ObjectList.append(Object)
 
         Result = GenPcdSections(ObjectList)
         Expected = '''[FeaturePcd]
-# commment line 1
+# comment line 1
 # comment line 2
 TSCName.CName|DValue|FFE'''
         self.assertEqual(Result.strip(), Expected)
@@ -1070,7 +1070,7 @@ TSCName.CName|DValue|FFE'''
         FFE = 'FFE'
 
         Usage = 'PRODUCES'
-        Str = 'commment line 1\ncomment line 2'
+        Str = 'comment line 1\ncomment line 2'
         Object = self.ObjectFactory(ItemType, TSCName, CName, DValue, FFE,
                                     Usage, Str)
         ObjectList.append(Object)
@@ -1079,7 +1079,7 @@ TSCName.CName|DValue|FFE'''
         Expected = '''
 
 [FeaturePcd]
-# commment line 1
+# comment line 1
 # comment line 2
 TSCName.CName|DValue|FFE
 '''

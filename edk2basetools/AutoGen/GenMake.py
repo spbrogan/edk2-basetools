@@ -614,7 +614,7 @@ cleanlib:
                     IncludePath = IncludePath.rstrip(os.sep)
                 # When compiling .nasm files, need to add a literal backslash at each path.
                 # In nmake makfiles, a trailing literal backslash must be escaped with a caret ('^').
-                # It is otherwise replaced with a space (' '). This is not necessary for GNU makfefiles.
+                # It is otherwise replaced with a space (' '). This is not necessary for GNU makefiles.
                 if P == MyAgo.IncludePathList[-1] and self._Platform == WIN32_PLATFORM and self._FileType == NMAKE_FILETYPE:
                     IncludePath = ''.join([IncludePath, '^', os.sep])
                 else:
@@ -1143,15 +1143,15 @@ cleanlib:
     ## Return a list containing source file's dependencies
     #
     #   @param      FileList        The list of source files
-    #   @param      ForceInculeList The list of files which will be included forcely
+    #   @param      ForceIncludeList The list of files which will be forcibly included
     #   @param      SearchPathList  The list of search path
     #
     #   @retval     dict            The mapping between source file path and its dependencies
     #
-    def GetFileDependency(self, FileList, ForceInculeList, SearchPathList):
+    def GetFileDependency(self, FileList, ForceIncludeList, SearchPathList):
         Dependency = {}
         for F in FileList:
-            Dependency[F] = GetDependencyList(self._AutoGenObject, self.FileCache, F, ForceInculeList, SearchPathList)
+            Dependency[F] = GetDependencyList(self._AutoGenObject, self.FileCache, F, ForceIncludeList, SearchPathList)
         return Dependency
 
 
@@ -1685,7 +1685,7 @@ class TopLevelMakefile(BuildFile):
 #  in given search path list.
 #
 #   @param      File            The source file
-#   @param      ForceInculeList The list of files which will be included forcely
+#   @param      ForceList       The list of files which will be forcibly included
 #   @param      SearchPathList  The list of search path
 #
 #   @retval     list            The list of files the given source file depends on

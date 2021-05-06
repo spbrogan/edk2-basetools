@@ -91,7 +91,7 @@ def SetLogLevel(Opt):
             Logger.SetLevel(Logger.INFO)
         else:
             Logger.SetLevel(Opt.debug_level + 1)
-    elif Opt.opt_slient:
+    elif Opt.opt_silent:
         Logger.SetLevel(Logger.SILENT)
     else:
         Logger.SetLevel(Logger.INFO)
@@ -111,7 +111,7 @@ def Main():
     Parser.add_option("-v", "--verbose", action="store_true", dest="opt_verbose",
                       help=ST.HLP_PRINT_INFORMATIONAL_STATEMENT)
 
-    Parser.add_option("-s", "--silent", action="store_true", dest="opt_slient", help=ST.HLP_RETURN_NO_DISPLAY)
+    Parser.add_option("-s", "--silent", action="store_true", dest="opt_silent", help=ST.HLP_RETURN_NO_DISPLAY)
 
     Parser.add_option("-q", "--quiet", action="store_true", dest="opt_quiet", help=ST.HLP_RETURN_AND_DISPLAY)
 

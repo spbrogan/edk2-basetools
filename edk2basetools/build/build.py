@@ -1220,7 +1220,7 @@ class Build():
             mqueue.put((None,None,None,None,None,None,None))
             AutoGenObject.DataPipe.DataContainer = {"CommandTarget": self.Target}
             AutoGenObject.DataPipe.DataContainer = {"Workspace_timestamp": AutoGenObject.Workspace._SrcTimeStamp}
-            AutoGenObject.CreateLibModuelDirs()
+            AutoGenObject.CreateLibModuleDirs()
             AutoGenObject.DataPipe.DataContainer = {"LibraryBuildDirectoryList":AutoGenObject.LibraryBuildDirectoryList}
             AutoGenObject.DataPipe.DataContainer = {"ModuleBuildDirectoryList":AutoGenObject.ModuleBuildDirectoryList}
             AutoGenObject.DataPipe.DataContainer = {"FdsCommandDict": AutoGenObject.Workspace.GenFdsCommandDict}
@@ -1503,7 +1503,7 @@ class Build():
             else:
                 MapBuffer.append('\n\n%s (Fixed Memory Address, BaseAddress=0x%010X,  EntryPoint=0x%010X)\n' % (ModuleName, BaseAddress, BaseAddress + ModuleInfo.Image.EntryPoint))
             #
-            # Add guid and general seciton section.
+            # Add guid and general section.
             #
             TextSectionAddress = 0
             DataSectionAddress = 0
@@ -1936,7 +1936,7 @@ class Build():
                         EdkLogger.error("build", BUILD_ERROR, "Failed to build module", ExtraData=GlobalData.gBuildingModule)
                     self.MakeTime += int(round((time.time() - MakeStart)))
 
-                MakeContiue = time.time()
+                MakeContinue = time.time()
                 ExitFlag.set()
                 BuildTask.WaitForComplete()
                 self.CreateAsBuiltInf()
@@ -1947,7 +1947,7 @@ class Build():
                     # Update PreMakeCacheChain files
                     self.GenLocalPreMakeCache()
                 self.BuildModules = []
-                self.MakeTime += int(round((time.time() - MakeContiue)))
+                self.MakeTime += int(round((time.time() - MakeContinue)))
                 if BuildTask.HasError():
                     EdkLogger.error("build", BUILD_ERROR, "Failed to build module", ExtraData=GlobalData.gBuildingModule)
 
@@ -1969,7 +1969,7 @@ class Build():
                         # Check whether the set fix address is above 4G for 32bit image.
                         #
                         if (Arch == 'IA32' or Arch == 'ARM') and self.LoadFixAddress != 0xFFFFFFFFFFFFFFFF and self.LoadFixAddress >= 0x100000000:
-                            EdkLogger.error("build", PARAMETER_INVALID, "FIX_LOAD_TOP_MEMORY_ADDRESS can't be set to larger than or equal to 4G for the platorm with IA32 or ARM arch modules")
+                            EdkLogger.error("build", PARAMETER_INVALID, "FIX_LOAD_TOP_MEMORY_ADDRESS can't be set to larger than or equal to 4G for the platform with IA32 or ARM arch modules")
                     #
                     # Get Module List
                     #
@@ -2133,7 +2133,7 @@ class Build():
             Pa.DataPipe.DataContainer = {"FfsCommand":CmdListDict}
             Pa.DataPipe.DataContainer = {"Workspace_timestamp": Wa._SrcTimeStamp}
             Pa.DataPipe.DataContainer = {"CommandTarget": self.Target}
-            Pa.CreateLibModuelDirs()
+            Pa.CreateLibModuleDirs()
             # Fetch the MakeFileName.
             self.MakeFileName = Pa.MakeFileName
             if not self.MakeFileName:
@@ -2267,7 +2267,7 @@ class Build():
                         EdkLogger.error("build", BUILD_ERROR, "Failed to build module", ExtraData=GlobalData.gBuildingModule)
                     self.MakeTime += int(round((time.time() - MakeStart)))
 
-                MakeContiue = time.time()
+                MakeContinue = time.time()
                 #
                 #
                 # All modules have been put in build tasks queue. Tell task scheduler
@@ -2286,7 +2286,7 @@ class Build():
                 #
                 ModuleList = {ma.Guid.upper(): ma for ma in self.BuildModules}
                 self.BuildModules = []
-                self.MakeTime += int(round((time.time() - MakeContiue)))
+                self.MakeTime += int(round((time.time() - MakeContinue)))
                 #
                 # Check for build error, and raise exception if one
                 # has been signaled.
@@ -2301,7 +2301,7 @@ class Build():
                         # Check whether the set fix address is above 4G for 32bit image.
                         #
                         if (Arch == 'IA32' or Arch == 'ARM') and self.LoadFixAddress != 0xFFFFFFFFFFFFFFFF and self.LoadFixAddress >= 0x100000000:
-                            EdkLogger.error("build", PARAMETER_INVALID, "FIX_LOAD_TOP_MEMORY_ADDRESS can't be set to larger than or equal to 4G for the platorm with IA32 or ARM arch modules")
+                            EdkLogger.error("build", PARAMETER_INVALID, "FIX_LOAD_TOP_MEMORY_ADDRESS can't be set to larger than or equal to 4G for the platform with IA32 or ARM arch modules")
 
                     #
                     # Rebase module to the preferred memory address before GenFds

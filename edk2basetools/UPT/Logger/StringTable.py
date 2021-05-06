@@ -51,7 +51,7 @@ MSG_DESCRIPTION = _("The UEFIPT is used to create, " + \
 #
 ERR_INF_PARSER_HEADER_FILE = _(
     "The Header comment section should start with an @file at the top.")
-ERR_INF_PARSER_HEADER_MISSGING = _(
+ERR_INF_PARSER_HEADER_MISSING = _(
     "The Header comment is missing. It must be corrected before continuing.")
 ERR_INF_PARSER_UNKNOWN_SECTION = _("An unknown section was found. "
                                    "It must be corrected before continuing. ")
@@ -190,7 +190,7 @@ ERR_INF_PARSER_DEFINE_SECTION_KEYWORD_INVALID = \
 ERR_INF_PARSER_FILE_MISS_DEFINE = \
     _("The following file listed in the module "
       "directory is not listed in the INF: %s")
-ERR_INF_PARSER_VERSION_NUMBER_DEPRICATED = \
+ERR_INF_PARSER_VERSION_NUMBER_DEPRECATED = \
     _("VERSION_NUMBER deprecated.  "
       "The INF file %s should be modified to use the VERSION_STRING instead.")
 ERR_INF_PARSER_VER_EXIST_BOTH_NUM_STR = \
@@ -254,7 +254,7 @@ ERR_ASBUILD_PCD_VALUE_INVALID = \
     _("The AsBuilt PCD value %s is incorrect or not align with its datum type %s. "
       "It must be corrected before continuing.")
 ERR_ASBUILD_PCD_TOKENSPACE_GUID_VALUE_MISS = _("Package file value could not be retrieved for %s.")
-ERR_ASBUILD_PCD_DECLARITION_MISS = _("PCD Declaration in DEC files could not be found for: %s.")
+ERR_ASBUILD_PCD_DECLARATION_MISS = _("PCD Declaration in DEC files could not be found for: %s.")
 ERR_ASBUILD_PCD_OFFSET_FORMAT_INVALID = _("PCD offset format invalid, number of (0-4294967295) or"
 "Hex number of UINT32 allowed : %s.")
 
@@ -509,7 +509,7 @@ ERR_FILE_TYPE_MISMATCH           = _("Incorrect file type")
 ERR_FILE_CASE_MISMATCH           = _("File name case mismatch")
 ERR_FILE_DUPLICATED              = _("Duplicate file found")
 ERR_FILE_UNKNOWN_ERROR           = _("Unknown error encountered on file")
-ERR_FILE_NAME_INVALIDE           = _("This file name is invalid, it must not be an absolute path or "
+ERR_FILE_NAME_INVALID            = _("This file name is invalid, it must not be an absolute path or "
                                      "contain a period \".\" or \"..\":  %s.")
 ERR_OPTION_UNKNOWN               = _("Unknown option")
 ERR_OPTION_MISSING               = _("Missing option")
@@ -695,7 +695,7 @@ ERR_DECPARSE_PCD_BOOL               = \
 _("Invalid value [%s] of type [%s]; must be expression, TRUE, FALSE, 0 or 1.")
 ERR_DECPARSE_PCD_INT                = _("Incorrect value [%s] of type [%s]."\
 " Value must be a hexadecimal, decimal or octal in C language format.")
-ERR_DECPARSE_PCD_INT_NEGTIVE        = _("Incorrect value [%s] of type [%s];"
+ERR_DECPARSE_PCD_INT_NEGATIVE       = _("Incorrect value [%s] of type [%s];"
                                         " must not be signed number.")
 ERR_DECPARSE_PCD_INT_EXCEED         = _("Incorrect value [%s] of type [%s]; "
                                     "the number is too long for this type.")
@@ -720,7 +720,7 @@ ERR_DECPARSE_CGUID_NOT_FOUND = _("Unable to find the GUID value of this GUID CNa
 ERR_DECPARSE_FILEOPEN               = _("Unable to open: [%s].")
 ERR_DECPARSE_SECTION_EMPTY          = _("Empty sections are not allowed.")
 ERR_DECPARSE_SECTION_UE             = _("Incorrect UserExtensions format. "
-                            "Must be UserExtenxions.UserId.IdString[.Arch]+.")
+                            "Must be UserExtensions.UserId.IdString[.Arch]+.")
 ERR_DECPARSE_SECTION_UE_USERID      = _("Invalid UserId, must be underscore"
                                         "or alphanumeric characters.")
 ERR_DECPARSE_SECTION_UE_IDSTRING    = \

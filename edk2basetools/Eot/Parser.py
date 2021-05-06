@@ -40,7 +40,7 @@ def DeCompress(Method, Input):
     Process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     Process.communicate()[0]
 
-    # Return the beffer of New.bin
+    # Return the buffer of New.bin
     if os.path.exists('_New.bin'):
         return open('_New.bin', 'rb').read()
 

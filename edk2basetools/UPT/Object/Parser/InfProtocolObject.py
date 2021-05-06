@@ -291,13 +291,13 @@ class InfProtocolObject():
                                 pass
 
             if (InfProtocolItemObj) in self.Protocols:
-                ProcotolList = self.Protocols[InfProtocolItemObj]
-                ProcotolList.append(InfProtocolItemObj)
-                self.Protocols[InfProtocolItemObj] = ProcotolList
+                ProtocolList = self.Protocols[InfProtocolItemObj]
+                ProtocolList.append(InfProtocolItemObj)
+                self.Protocols[InfProtocolItemObj] = ProtocolList
             else:
-                ProcotolList = []
-                ProcotolList.append(InfProtocolItemObj)
-                self.Protocols[InfProtocolItemObj] = ProcotolList
+                ProtocolList = []
+                ProtocolList.append(InfProtocolItemObj)
+                self.Protocols[InfProtocolItemObj] = ProtocolList
 
         return True
 

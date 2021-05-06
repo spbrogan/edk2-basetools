@@ -22,7 +22,7 @@ from edk2basetools.UPT.Library.StringUtils import ConvertSpecialChar
 from edk2basetools.UPT.Library.Misc import ProcessLineExtender
 from edk2basetools.UPT.Library.Misc import ProcessEdkComment
 from edk2basetools.UPT.Library.Parsing import NormPath
-from edk2basetools.UPT.Library.ParserValidate import IsValidInfMoudleTypeList
+from edk2basetools.UPT.Library.ParserValidate import IsValidInfModuleTypeList
 from edk2basetools.UPT.Library.ParserValidate import IsValidArch
 from edk2basetools.UPT.Library import DataType as DT
 from edk2basetools.UPT.Library import GlobalData
@@ -453,9 +453,9 @@ class InfParser(InfSectionParser):
                 ChkModSectionList = ['LIBRARYCLASSES']
                 if (self.SectionHeaderContent[0][0].upper() in ChkModSectionList):
                     if SectionItem[2].strip().upper():
-                        MoudleTypeList = GetSplitValueList(
+                        ModuleTypeList = GetSplitValueList(
                                     SectionItem[2].strip().upper())
-                        if (not IsValidInfMoudleTypeList(MoudleTypeList)):
+                        if (not IsValidInfModuleTypeList(ModuleTypeList)):
                             Logger.Error("InfParser",
                                          FORMAT_INVALID,
                                          ST.ERR_INF_PARSER_DEFINE_FROMAT_INVALID%(SectionItem[2]),

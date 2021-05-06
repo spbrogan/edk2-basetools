@@ -199,7 +199,7 @@ if __name__ == '__main__':
     # Verify that the Hash Type matches the expected SHA256 type
     #
     if uuid.UUID(bytes_le = Header.HashType) != EFI_HASH_ALGORITHM_SHA256_GUID:
-      print('ERROR: unsupport hash GUID')
+      print('ERROR: unsupported hash GUID')
       sys.exit(1)
 
     #

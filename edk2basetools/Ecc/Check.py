@@ -925,7 +925,7 @@ class Check(object):
             pass
 
     # Check whether the unnecessary inclusion of library classes in the Inf file
-    # Check whether the unnecessary duplication of library classe names in the DSC file
+    # Check whether the unnecessary duplication of library class names in the DSC file
     def MetaDataFileCheckLibraryNoUse(self):
         if EccGlobalData.gConfig.MetaDataFileCheckLibraryNoUse == '1' or EccGlobalData.gConfig.MetaDataFileCheckAll == '1' or EccGlobalData.gConfig.CheckAll == '1':
             EdkLogger.quiet("Checking for library instance not used ...")

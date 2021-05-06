@@ -117,7 +117,7 @@ from edk2basetools.AutoGen.GenMake import gIncludePattern
 ## Find dependencies for one source file
 #
 #  By searching recursively "#include" directive in file, find out all the
-#  files needed by given source file. The dependecies will be only searched
+#  files needed by given source file. The dependencies will be only searched
 #  in given search path list.
 #
 #   @param      SearchPathList  The list of search path
@@ -1603,7 +1603,7 @@ class DscBuildData(PlatformBuildClassObject):
         S_pcd_set = DscBuildData.OverrideByFdf(S_pcd_set,self.WorkspaceDir)
         S_pcd_set = DscBuildData.OverrideByComm(S_pcd_set)
 
-        # Create a tool to caculate structure pcd value
+        # Create a tool to calculate structure pcd value
         Str_Pcd_Values = self.GenerateByteArrayValue(S_pcd_set)
 
         if Str_Pcd_Values:
@@ -1984,7 +1984,7 @@ class DscBuildData(PlatformBuildClassObject):
             for index_e in index_elements:
                 index_num = index_e.lstrip("[").rstrip("]").strip()
                 if not index_num:
-                    # Not support flexiable pcd array assignment
+                    # Not support flexible pcd array assignment
                     return 1
                 index_num = int(index_num,16) if index_num.startswith(("0x","0X")) else int(index_num)
                 rt = rt * (index_num+1)
@@ -3013,19 +3013,19 @@ class DscBuildData(PlatformBuildClassObject):
                             c_line, dsc_line = error_line.split(r"//")
                         else:
                             dsc_line = error_line
-                        message_itmes = Message.split(":")
+                        message_items = Message.split(":")
                         Index = 0
                         if "PcdValueInit.c" not in Message:
                             if not MessageGroup:
                                 MessageGroup.append(Message)
                             break
                         else:
-                            for item in message_itmes:
+                            for item in message_items:
                                 if "PcdValueInit.c" in item:
-                                    Index = message_itmes.index(item)
-                                    message_itmes[Index] = dsc_line.strip()
+                                    Index = message_items.index(item)
+                                    message_items[Index] = dsc_line.strip()
                                     break
-                            MessageGroup.append(":".join(message_itmes[Index:]).strip())
+                            MessageGroup.append(":".join(message_items[Index:]).strip())
                             continue
                     else:
                         MessageGroup.append(Message)

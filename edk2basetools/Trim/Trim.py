@@ -154,7 +154,7 @@ def TrimPreprocessedFile(Source, Target, ConvertHex, TrimLong):
             Line = Lines[Index]
             if MulPatternFlag == False and gTypedef_MulPattern.search(Line) is None:
                 if SinglePatternFlag == False and gTypedef_SinglePattern.search(Line) is None:
-                    # remove "#pragram pack" directive
+                    # remove "#pragma pack" directive
                     if gPragmaPattern.search(Line) is None:
                         NewLines.append(Line)
                     continue
@@ -212,17 +212,17 @@ def TrimPreprocessedVfr(Source, Target):
             break
 
         if FoundTypedef == False and (Line.find('#line') == 0 or Line.find('# ') == 0):
-            # empty the line number directive if it's not aomong "typedef struct"
+            # empty the line number directive if it's not among "typedef struct"
             Lines[Index] = "\n"
             continue
 
         if FoundTypedef == False and gTypedefPattern.search(Line) is None:
-            # keep "#pragram pack" directive
+            # keep "#pragma pack" directive
             if gPragmaPattern.search(Line) is None:
                 Lines[Index] = "\n"
             continue
         elif FoundTypedef == False:
-            # found "typedef struct", keept its position and set a flag
+            # found "typedef struct", keep its position and set a flag
             FoundTypedef = True
             TypedefStart = Index
 

@@ -131,7 +131,7 @@ class FileStatement (FileStatementClassObject):
                     self.Alignment = self.SubAlignment
 
             self.FileName = GenFdsGlobalVariable.ReplaceWorkspaceMacro(self.FileName)
-            #Replace $(SAPCE) with real space
+            #Replace $(SPACE) with real space
             self.FileName = self.FileName.replace('$(SPACE)', ' ')
             SectionFiles = [GenFdsGlobalVariable.MacroExtend(self.FileName, Dict)]
 

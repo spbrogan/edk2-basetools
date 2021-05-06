@@ -577,7 +577,7 @@ def SetValueDatumTypeMaxSizeToken(PcdItem, CurrentLineOfPcdItem, PcdItemObj, Arc
     if PcdItemObj.GetToken() == '' or PcdItemObj.GetDatumType() == '':
         Logger.Error("InfParser",
                      ToolError.FORMAT_INVALID,
-                     ST.ERR_ASBUILD_PCD_DECLARITION_MISS % ("\"" + PcdItem[0] + "\""),
+                     ST.ERR_ASBUILD_PCD_DECLARATION_MISS % ("\"" + PcdItem[0] + "\""),
                      File=CurrentLineOfPcdItem[2],
                      Line=CurrentLineOfPcdItem[1],
                      ExtraData=CurrentLineOfPcdItem[0])

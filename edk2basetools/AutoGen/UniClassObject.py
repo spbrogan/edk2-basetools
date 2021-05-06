@@ -629,7 +629,7 @@ class UniFileClassObject(object):
         #
         FirstLangName = self.LanguageDef[0][0]
 
-        # Convert the OrderedStringList to be OrderedStringListByToken in order to faciliate future search by token
+        # Convert the OrderedStringList to be OrderedStringListByToken in order to facilitate future search by token
         for LangNameItem in self.LanguageDef:
             self.OrderedStringListByToken[LangNameItem[0]] = {}
 
@@ -649,7 +649,7 @@ class UniFileClassObject(object):
                 RefToken = RefToken + 1
 
         #
-        # Use big token for all unreferred string stoken.
+        # Use big token for all string stoken not referenced.
         #
         UnRefToken = 0
         for Index in range (0, len (self.OrderedStringList[FirstLangName])):

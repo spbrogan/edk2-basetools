@@ -24,7 +24,7 @@ from edk2basetools.UPT.Library.Misc import ConvPathFromAbsToRel
 from edk2basetools.UPT.Library.Misc import ValidateUNIFilePath
 from edk2basetools.UPT.Library.ExpressionValidate import IsValidFeatureFlagExp
 from edk2basetools.UPT.Library.ParserValidate import IsValidWord
-from edk2basetools.UPT.Library.ParserValidate import IsValidInfMoudleType
+from edk2basetools.UPT.Library.ParserValidate import IsValidInfModuleType
 from edk2basetools.UPT.Library.ParserValidate import IsValidHex
 from edk2basetools.UPT.Library.ParserValidate import IsValidHexVersion
 from edk2basetools.UPT.Library.ParserValidate import IsValidDecVersion
@@ -276,7 +276,7 @@ class InfDefSection(InfDefSectionOptionRomInfo):
         #
         # Valid Module Type or not
         #
-        if (IsValidInfMoudleType(ModuleType)):
+        if (IsValidInfModuleType(ModuleType)):
             self.ModuleType = InfDefMember()
             self.ModuleType.SetValue(ModuleType)
             self.ModuleType.CurrentLine = CurrentLine()

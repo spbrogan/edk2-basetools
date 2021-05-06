@@ -430,7 +430,7 @@ class ModuleAutoGen(AutoGen):
             return path.join(self.PlatformInfo.BuildDir, TAB_FV_DIRECTORY, "Ffs", self.Guid + self.Name)
         return ''
 
-    ## Return the directory to store auto-gened source files of the module
+    ## Return the directory to store auto-generated source files of the module
     @cached_property
     def DebugDir(self):
         return _MakeDir((self.BuildDir, "DEBUG"))
@@ -1824,13 +1824,13 @@ class ModuleAutoGen(AutoGen):
 
         self.LibraryAutoGenList
         AutoGenList = []
-        IgoredAutoGenList = []
+        IgnoredAutoGenList = []
 
         for File in self.AutoGenFileList:
             if GenC.Generate(File.Path, self.AutoGenFileList[File], File.IsBinary):
                 AutoGenList.append(str(File))
             else:
-                IgoredAutoGenList.append(str(File))
+                IgnoredAutoGenList.append(str(File))
 
 
         for ModuleType in self.DepexList:
@@ -1847,17 +1847,17 @@ class ModuleAutoGen(AutoGen):
             if Dpx.Generate(path.join(self.OutputDir, DpxFile)):
                 AutoGenList.append(str(DpxFile))
             else:
-                IgoredAutoGenList.append(str(DpxFile))
+                IgnoredAutoGenList.append(str(DpxFile))
 
-        if IgoredAutoGenList == []:
+        if IgnoredAutoGenList == []:
             EdkLogger.debug(EdkLogger.DEBUG_9, "Generated [%s] files for module %s [%s]" %
                             (" ".join(AutoGenList), self.Name, self.Arch))
         elif AutoGenList == []:
             EdkLogger.debug(EdkLogger.DEBUG_9, "Skipped the generation of [%s] files for module %s [%s]" %
-                            (" ".join(IgoredAutoGenList), self.Name, self.Arch))
+                            (" ".join(IgnoredAutoGenList), self.Name, self.Arch))
         else:
             EdkLogger.debug(EdkLogger.DEBUG_9, "Generated [%s] (skipped %s) files for module %s [%s]" %
-                            (" ".join(AutoGenList), " ".join(IgoredAutoGenList), self.Name, self.Arch))
+                            (" ".join(AutoGenList), " ".join(IgnoredAutoGenList), self.Name, self.Arch))
 
         self.IsCodeFileCreated = True
 
@@ -1905,8 +1905,8 @@ class ModuleAutoGen(AutoGen):
         if lines:
             DependencyFileSet.update(lines)
 
-        # Caculate all above dependency files hash
-        # Initialze hash object
+        # Calculate all above dependency files hash
+        # Initialize hash object
         FileList = []
         m = hashlib.md5()
         for File in sorted(DependencyFileSet, key=lambda x: str(x)):
@@ -1960,8 +1960,8 @@ class ModuleAutoGen(AutoGen):
             DependencyFileSet.update(rt)
 
 
-        # Caculate all above dependency files hash
-        # Initialze hash object
+        # Calculate all above dependency files hash
+        # Initialize hash object
         FileList = []
         m = hashlib.md5()
         BuildDirStr = path.abspath(self.BuildDir).lower()

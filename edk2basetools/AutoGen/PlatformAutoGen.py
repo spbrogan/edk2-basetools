@@ -190,9 +190,9 @@ class PlatformAutoGen(AutoGen):
                     Ma.CreateMakeFile(CreateModuleMakeFile, FfsCommand[key])
                 else:
                     Ma.CreateMakeFile(CreateModuleMakeFile)
-        self.CreateLibModuelDirs()
+        self.CreateLibModuleDirs()
 
-    def CreateLibModuelDirs(self):
+    def CreateLibModuleDirs(self):
         # No need to create makefile for the platform more than once.
         if self.MakeFileName:
             return
@@ -449,7 +449,7 @@ class PlatformAutoGen(AutoGen):
         #
         # Sort dynamic PCD list to:
         # 1) If PCD's datum type is VOID* and value is unicode string which starts with L, the PCD item should
-        #    try to be put header of dynamicd List
+        #    try to be put header of dynamic List
         # 2) If PCD is HII type, the PCD item should be put after unicode type PCD
         #
         # The reason of sorting is make sure the unicode string is in double-byte alignment in string table.
@@ -737,7 +737,7 @@ class PlatformAutoGen(AutoGen):
                     break
             # Call third party GUID BPDG tool.
             if BPDGToolName is not None:
-                VpdInfoFile.CallExtenalBPDGTool(BPDGToolName, VpdFilePath)
+                VpdInfoFile.CallExternalBPDGTool(BPDGToolName, VpdFilePath)
             else:
                 EdkLogger.error("Build", FILE_NOT_FOUND, "Fail to find third-party BPDG tool to process VPD PCDs. BPDG Guid tool need to be defined in tools_def.txt and VPD_TOOL_GUID need to be provided in DSC file.")
 
@@ -1392,7 +1392,7 @@ class PlatformAutoGen(AutoGen):
     #   @param  Options     Options to be expanded
     #   @param  ToolDef     Use specified ToolDef instead of full version.
     #                       This is needed during initialization to prevent
-    #                       infinite recursion betweeh BuildOptions,
+    #                       infinite recursion n BuildOptions,
     #                       ToolDefinition, and this function.
     #
     #   @retval options     Options expanded
@@ -1485,7 +1485,7 @@ class PlatformAutoGen(AutoGen):
                                 BuildOptions[Tool][Attr] += " " + Options[Key]
                             else:
                                 BuildOptions[Tool][Attr] = Options[Key]
-        # Build Option Family has been checked, which need't to be checked again for family.
+        # Build Option Family has been checked, which need not be checked again for family.
         if FamilyMatch or FamilyIsNull:
             return BuildOptions
 

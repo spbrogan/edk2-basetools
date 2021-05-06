@@ -182,11 +182,11 @@ def GenBinaryData(BinaryData, BinaryObj, BinariesDict, AsBuildIns, BinaryFileObj
         FFE = ItemObj.GetFeatureFlagExp()
 
         #
-        # If have architecturie specified, then use the specified architecturie;
+        # If have architecture specified, then use the specified architecture;
         # If the section tag does not have an architecture modifier or the modifier is "common" (case in-sensitive),
         # and the VALID_ARCHITECTURES comment exists, the list from the VALID_ARCHITECTURES comment
         # can be used for the attribute.
-        # If both not have VALID_ARCHITECTURE comment and no architecturie specified, then keep it empty.
+        # If both not have VALID_ARCHITECTURE comment and no architecture specified, then keep it empty.
         #
         SupArchList = sorted(ConvertArchList(ItemObj.GetSupArchList()))
         if len(SupArchList) == 1 and SupArchList[0] == 'COMMON':

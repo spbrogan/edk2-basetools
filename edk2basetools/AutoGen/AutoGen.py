@@ -40,7 +40,7 @@ class AutoGen(object):
         if Key in cls.__ObjectCache:
             # if it exists, just return it directly
             return cls.__ObjectCache[Key]
-            # it didnt exist. create it, cache it, then return it
+            # it didn't exist. create it, cache it, then return it
         RetVal = cls.__ObjectCache[Key] = super(AutoGen, cls).__new__(cls)
         return RetVal
 

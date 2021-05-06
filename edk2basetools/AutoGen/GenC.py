@@ -1839,7 +1839,7 @@ def CreateIdfFileCode(Info, AutoGenC, StringH, IdfGenCFlag, IdfGenBinBuffer):
             if IdfGenCFlag:
                 TotalLength = EFI_HII_ARRAY_SIZE_LENGTH + PACKAGE_HEADER_Length
                 AutoGenC.Append("\n//\n//Image Pack Definition\n//\n")
-                AllStr = WriteLine('', CHAR_ARRAY_DEFIN + ' ' + Info.Module.BaseName + 'Images' + '[] = {\n')
+                AllStr = WriteLine('', CHAR_ARRAY_DEFINE + ' ' + Info.Module.BaseName + 'Images' + '[] = {\n')
                 AllStr = WriteLine(AllStr, '// STRGATHER_OUTPUT_HEADER')
                 AllStr = WriteLine(AllStr, CreateArrayItem(DecToHexList(TotalLength)) + '\n')
                 AllStr = WriteLine(AllStr, '// Image PACKAGE HEADER\n')

@@ -133,7 +133,7 @@ class AutoGenManager(threading.Thread):
         clearQ(taskq)
         clearQ(self.feedback_q)
         clearQ(logq)
-        # Copy the cache queue itmes to parent thread before clear
+        # Copy the cache queue items to parent thread before clear
         cacheq = self.autogen_workers[0].cache_q
         try:
             cache_num = 0
@@ -303,8 +303,8 @@ class AutoGenWorkerInProcess(mp.Process):
             self.cache_q.put("CacheDone")
 
     def printStatus(self):
-        print("Processs ID: %d Run %d modules in AutoGen " % (os.getpid(),len(AutoGen.Cache())))
-        print("Processs ID: %d Run %d modules in AutoGenInfo " % (os.getpid(),len(AutoGenInfo.GetCache())))
+        print("Process ID: %d Run %d modules in AutoGen " % (os.getpid(),len(AutoGen.Cache())))
+        print("Process ID: %d Run %d modules in AutoGenInfo " % (os.getpid(),len(AutoGenInfo.GetCache())))
         groupobj = {}
         for buildobj in BuildDB.BuildObject.GetCache().values():
             if str(buildobj).lower().endswith("dec"):
@@ -324,6 +324,6 @@ class AutoGenWorkerInProcess(mp.Process):
                 except:
                     groupobj['inf'] = [str(buildobj)]
 
-        print("Processs ID: %d Run %d pkg in WDB " % (os.getpid(),len(groupobj.get("dec",[]))))
-        print("Processs ID: %d Run %d pla in WDB " % (os.getpid(),len(groupobj.get("dsc",[]))))
-        print("Processs ID: %d Run %d inf in WDB " % (os.getpid(),len(groupobj.get("inf",[]))))
+        print("Process ID: %d Run %d pkg in WDB " % (os.getpid(),len(groupobj.get("dec",[]))))
+        print("Process ID: %d Run %d pla in WDB " % (os.getpid(),len(groupobj.get("dsc",[]))))
+        print("Process ID: %d Run %d inf in WDB " % (os.getpid(),len(groupobj.get("inf",[]))))

@@ -37,7 +37,7 @@ def ConvertVariableName(VariableName):
     if len(ValueList)%2 == 1:
         return None
 
-    TransferedStr = ''
+    TransferredStr = ''
 
     Index = 0
 
@@ -49,14 +49,14 @@ def ConvertVariableName(VariableName):
 
         if FirstByte not in range(0x20, 0x7F):
             return None
-        TransferedStr += ('%c')%FirstByte
+        TransferredStr += ('%c')%FirstByte
         Index = Index + 2
 
-    return 'L"' + TransferedStr + '"'
+    return 'L"' + TransferredStr + '"'
 
 ## IsRequiredItemListNull
 #
-# Check if a required XML section item/attribue is NULL
+# Check if a required XML section item/attribute is NULL
 #
 # @param ItemList:     The list of items to be checked
 # @param XmlTreeLevel: The error message tree level

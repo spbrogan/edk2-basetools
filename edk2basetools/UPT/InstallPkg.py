@@ -644,7 +644,7 @@ def InstallModuleContent(FromPath, NewPath, ModulePath, Module, ContentZipFile,
         NewPath = NewPath[1:]
 
     if not IsValidInstallPath(NewPath):
-        Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALIDE%NewPath)
+        Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALID%NewPath)
 
     NewModuleFullPath = os.path.normpath(os.path.join(WorkspaceDir, NewPath,
         ConvertPath(ModulePath)))
@@ -661,7 +661,7 @@ def InstallModuleContent(FromPath, NewPath, ModulePath, Module, ContentZipFile,
                 File = File[1:]
 
             if not IsValidInstallPath(File):
-                Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALIDE%File)
+                Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALID%File)
 
             FromFile = os.path.join(FromPath, ModulePath, File)
             Executable = Item.GetExecutable()
@@ -679,7 +679,7 @@ def InstallModuleContent(FromPath, NewPath, ModulePath, Module, ContentZipFile,
             File = File[1:]
 
         if not IsValidInstallPath(File):
-            Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALIDE%File)
+            Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALID%File)
 
         FromFile = os.path.join(FromPath, ModulePath, File)
         ToFile = os.path.normpath(os.path.join(NewModuleFullPath, ConvertPath(File)))
@@ -698,7 +698,7 @@ def InstallModuleContent(FromPath, NewPath, ModulePath, Module, ContentZipFile,
                 File = File[1:]
 
             if not IsValidInstallPath(File):
-                Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALIDE%File)
+                Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALID%File)
 
             FromFile = os.path.join(FromPath, ModulePath, File)
             ToFile = os.path.normpath(os.path.join(NewModuleFullPath, ConvertPath(File)))
@@ -731,7 +731,7 @@ def InstallModuleContentZipFile(ContentZipFile, FromPath, ModulePath, WorkspaceD
                     FileName = FileName[1:]
 
                 if not IsValidInstallPath(FileName):
-                    Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALIDE%FileName)
+                    Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALID%FileName)
 
                 FromFile = FileName
                 ToFile = os.path.normpath(os.path.join(WorkspaceDir,
@@ -822,13 +822,13 @@ def InstallPackageContent(FromPath, ToPath, Package, ContentZipFile, Dep,
         ToPath = ToPath[1:]
 
     if not IsValidInstallPath(ToPath):
-        Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALIDE%ToPath)
+        Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALID%ToPath)
 
     if FromPath.startswith("\\") or FromPath.startswith("/"):
         FromPath = FromPath[1:]
 
     if not IsValidInstallPath(FromPath):
-        Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALIDE%FromPath)
+        Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALID%FromPath)
 
     PackageFullPath = os.path.normpath(os.path.join(WorkspaceDir, ToPath))
     for MiscFile in Package.GetMiscFileList():
@@ -838,7 +838,7 @@ def InstallPackageContent(FromPath, ToPath, Package, ContentZipFile, Dep,
                 FileName = FileName[1:]
 
             if not IsValidInstallPath(FileName):
-                Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALIDE%FileName)
+                Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALID%FileName)
 
             FromFile = os.path.join(FromPath, FileName)
             Executable = Item.GetExecutable()
@@ -853,7 +853,7 @@ def InstallPackageContent(FromPath, ToPath, Package, ContentZipFile, Dep,
             FileName = FileName[1:]
 
         if not IsValidInstallPath(FileName):
-            Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALIDE%FileName)
+            Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALID%FileName)
 
         FromFile = os.path.join(FromPath, FileName)
         ToFile = os.path.normpath(os.path.join(PackageFullPath, ConvertPath(FileName)))
@@ -882,7 +882,7 @@ def InstallPackageContent(FromPath, ToPath, Package, ContentZipFile, Dep,
             FileName = FileName[1:]
 
         if not IsValidInstallPath(FileName):
-            Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALIDE%FileName)
+            Logger.Error("UPT", FORMAT_INVALID, ST.ERR_FILE_NAME_INVALID%FileName)
 
         FromFile = os.path.join(FromPath, FileName)
         ToFile = os.path.normpath(os.path.join(PackageFullPath, ConvertPath(FileName)))

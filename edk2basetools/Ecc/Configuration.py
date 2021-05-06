@@ -167,7 +167,7 @@ class Configuration(object):
         self.GeneralCheckIndentation = 1
         # The width of indentation
         self.GeneralCheckIndentationWidth = 2
-        # Check whether no line is exceeding defined widty
+        # Check whether no line is exceeding defined width
         self.GeneralCheckLine = 1
         # The width of a line
         self.GeneralCheckLineWidth = 120

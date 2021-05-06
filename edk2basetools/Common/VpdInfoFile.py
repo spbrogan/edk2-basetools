@@ -220,7 +220,7 @@ class VpdInfoFile:
 #  @param ToolPath      The string path name for BPDG tool
 #  @param VpdFileName   The string path name for VPD information guid.txt
 #
-def CallExtenalBPDGTool(ToolPath, VpdFileName):
+def CallExternalBPDGTool(ToolPath, VpdFileName):
     assert ToolPath is not None, "Invalid parameter ToolPath"
     assert VpdFileName is not None and os.path.exists(VpdFileName), "Invalid parameter VpdFileName"
 

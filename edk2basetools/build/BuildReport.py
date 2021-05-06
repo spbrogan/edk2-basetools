@@ -909,7 +909,7 @@ class PcdReport(object):
     # @param File            The file object for report
     # @param ModulePcdSet    Set of all PCDs referenced by module or None for
     #                        platform PCD report
-    # @param ReportySubType  0 means platform/module PCD report, 1 means Conditional
+    # @param ReportSubType   0 means platform/module PCD report, 1 means Conditional
     #                        directives section report, 2 means Unused Pcds section report
     # @param DscOverridePcds Module DSC override PCDs set
     #

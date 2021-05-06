@@ -2394,7 +2394,7 @@ class FdfParser:
         ffsInf.CurrentLineNum = self.CurrentLineNumber
         ffsInf.CurrentLineContent = self._CurrentLine()
 
-        #Replace $(SAPCE) with real space
+        #Replace $(SPACE) with real space
         ffsInf.InfFileName = ffsInf.InfFileName.replace('$(SPACE)', ' ')
 
         if ffsInf.InfFileName.replace(TAB_WORKSPACE, '').find('$') == -1:
@@ -2904,7 +2904,7 @@ class FdfParser:
             if self._Token not in {"COMPAT16", BINARY_FILE_TYPE_PE32, BINARY_FILE_TYPE_PIC, BINARY_FILE_TYPE_TE, "FV_IMAGE", "RAW", BINARY_FILE_TYPE_DXE_DEPEX,\
                                BINARY_FILE_TYPE_UI, "VERSION", BINARY_FILE_TYPE_PEI_DEPEX, "SUBTYPE_GUID", BINARY_FILE_TYPE_SMM_DEPEX}:
                 raise Warning("Unknown section type '%s'" % self._Token, self.FileName, self.CurrentLineNumber)
-            if AlignValue == 'Auto'and (not self._Token == BINARY_FILE_TYPE_PE32) and (not self._Token == BINARY_FILE_TYPE_TE):
+            if AlignValue == 'Auto' and (not self._Token == BINARY_FILE_TYPE_PE32) and (not self._Token == BINARY_FILE_TYPE_TE):
                 raise Warning("Auto alignment can only be used in PE32 or TE section ", self.FileName, self.CurrentLineNumber)
 
             # DataSection

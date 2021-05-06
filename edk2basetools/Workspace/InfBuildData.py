@@ -484,7 +484,7 @@ class InfBuildData(ModuleBuildClassObject):
                 self._DestructorList = []
         return self._DestructorList
 
-    ## Retrieve definies other than above ones
+    ## Retrieve defines other than above ones
     @cached_property
     def Defines(self):
         self._GetHeaderInfo()

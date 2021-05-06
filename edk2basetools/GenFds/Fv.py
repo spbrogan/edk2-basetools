@@ -71,7 +71,7 @@ class FV (object):
     #   @param  MacroDict   macro value pair
     #   @retval string      Generated FV file path
     #
-    def AddToBuffer (self, Buffer, BaseAddress=None, BlockSize= None, BlockNum=None, ErasePloarity='1',  MacroDict = None, Flag=False):
+    def AddToBuffer (self, Buffer, BaseAddress=None, BlockSize= None, BlockNum=None, ErasePolarity='1',  MacroDict = None, Flag=False):
         if BaseAddress is None and self.UiFvName.upper() + 'fv' in GenFdsGlobalVariable.ImageBinDict:
             return GenFdsGlobalVariable.ImageBinDict[self.UiFvName.upper() + 'fv']
         if MacroDict is None:
@@ -100,7 +100,7 @@ class FV (object):
         if self.FvBaseAddress is not None:
             BaseAddress = self.FvBaseAddress
         if not Flag:
-            self._InitializeInf(BaseAddress, BlockSize, BlockNum, ErasePloarity)
+            self._InitializeInf(BaseAddress, BlockSize, BlockNum, ErasePolarity)
         #
         # First Process the Apriori section
         #
@@ -266,7 +266,7 @@ class FV (object):
     #   @param  BlockNum    How many blocks in FV
     #   @param  ErasePolarity      Flash erase polarity
     #
-    def _InitializeInf (self, BaseAddress = None, BlockSize= None, BlockNum = None, ErasePloarity='1'):
+    def _InitializeInf (self, BaseAddress = None, BlockSize= None, BlockNum = None, ErasePolarity='1'):
         #
         # Create FV inf file
         #
@@ -320,7 +320,7 @@ class FV (object):
         self.FvInfFile.append("[attributes]" + TAB_LINE_BREAK)
 
         self.FvInfFile.append("EFI_ERASE_POLARITY   = "       + \
-                                          ' %s' %ErasePloarity    + \
+                                          ' %s' %ErasePolarity    + \
                                           TAB_LINE_BREAK)
         if not (self.FvAttributeDict is None):
             for FvAttribute in self.FvAttributeDict.keys():

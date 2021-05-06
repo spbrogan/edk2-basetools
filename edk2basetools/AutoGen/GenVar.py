@@ -61,16 +61,16 @@ class VariableMgr(object):
             sku_var_info_offset_list = indexedvarinfo[key]
             sku_var_info_offset_list.sort(key=lambda x:x.PcdDscLine)
             FirstOffset = int(sku_var_info_offset_list[0].var_offset, 16) if sku_var_info_offset_list[0].var_offset.upper().startswith("0X") else int(sku_var_info_offset_list[0].var_offset)
-            fisrtvalue_list = sku_var_info_offset_list[0].default_value.strip("{").strip("}").split(",")
+            first_value_list = sku_var_info_offset_list[0].default_value.strip("{").strip("}").split(",")
             firstdata_type = sku_var_info_offset_list[0].data_type
             if firstdata_type in DataType.TAB_PCD_NUMERIC_TYPES:
-                fisrtdata_flag = DataType.PACK_CODE_BY_SIZE[MAX_SIZE_TYPE[firstdata_type]]
-                fisrtdata = fisrtvalue_list[0]
-                fisrtvalue_list = []
-                pack_data = pack(fisrtdata_flag, int(fisrtdata, 0))
+                first_data_flag = DataType.PACK_CODE_BY_SIZE[MAX_SIZE_TYPE[firstdata_type]]
+                first_data = first_value_list[0]
+                first_value_list = []
+                pack_data = pack(first_data_flag, int(first_data, 0))
                 for data_byte in range(len(pack_data)):
-                    fisrtvalue_list.append(hex(unpack("B", pack_data[data_byte:data_byte + 1])[0]))
-            newvalue_list = ["0x00"] * FirstOffset + fisrtvalue_list
+                    first_value_list.append(hex(unpack("B", pack_data[data_byte:data_byte + 1])[0]))
+            newvalue_list = ["0x00"] * FirstOffset + first_value_list
 
             for var_item in sku_var_info_offset_list[1:]:
                 CurOffset = int(var_item.var_offset, 16) if var_item.var_offset.upper().startswith("0X") else int(var_item.var_offset)

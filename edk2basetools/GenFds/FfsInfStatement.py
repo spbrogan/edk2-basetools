@@ -359,7 +359,7 @@ class FfsInfStatement(FfsInfStatementClassObject):
             os.makedirs(self.OutputPath)
 
         self.EfiOutputPath, self.EfiDebugPath = self.__GetEFIOutPutPath__()
-        GenFdsGlobalVariable.VerboseLogger( "ModuelEFIPath: " + self.EfiOutputPath)
+        GenFdsGlobalVariable.VerboseLogger( "ModuleEFIPath: " + self.EfiOutputPath)
 
     ## PatchEfiFile
     #

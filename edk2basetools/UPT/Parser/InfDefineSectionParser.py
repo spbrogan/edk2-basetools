@@ -83,7 +83,7 @@ class InfDefinSectionParser(InfParserSectionRoot):
             if LineContent.strip() == '':
                 continue
             #
-            # The first time encountered VALIDATE_ARCHITECHERS will be considered as support arch list.
+            # The first time encountered VALID_ARCHITECTURES will be considered as support arch list.
             #
             if not ArchList:
                 ArchList = GetValidateArchList(LineContent)

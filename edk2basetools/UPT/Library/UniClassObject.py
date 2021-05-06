@@ -176,7 +176,7 @@ def GetLanguageCode1766(LangName, File=None):
 #
 # @param LangName:   Language codes read from .UNI file
 #
-# @retval LangName:  Valid lanugage code in RFC 4646 format or None
+# @retval LangName:  Valid language code in RFC 4646 format or None
 #
 def GetLanguageCode(LangName, IsCompatibleMode, File):
     length = len(LangName)
@@ -1007,7 +1007,7 @@ class UniFileClassObject(object):
         #
         FirstLangName = self.LanguageDef[0][0]
 
-        # Convert the OrderedStringList to be OrderedStringListByToken in order to faciliate future search by token
+        # Convert the OrderedStringList to be OrderedStringListByToken in order to facilitate future search by token
         for LangNameItem in self.LanguageDef:
             self.OrderedStringListByToken[LangNameItem[0]] = {}
 
@@ -1027,7 +1027,7 @@ class UniFileClassObject(object):
                 RefToken = RefToken + 1
 
         #
-        # Use big token for all unreferred string stoken.
+        # Use big token for all string stoken not referenced.
         #
         UnRefToken = 0
         for Index in range (0, len (self.OrderedStringList[FirstLangName])):

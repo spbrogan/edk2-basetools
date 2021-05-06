@@ -52,7 +52,7 @@ DEFINE_STR = '#define'
 COMMENT_DEFINE_STR = COMMENT + DEFINE_STR
 NOT_REFERENCED = 'not referenced'
 COMMENT_NOT_REFERENCED = ' ' + COMMENT + NOT_REFERENCED
-CHAR_ARRAY_DEFIN = 'unsigned char'
+CHAR_ARRAY_DEFINE = 'unsigned char'
 COMMON_FILE_NAME = 'Strings'
 STRING_TOKEN = re.compile('STRING_TOKEN *\(([A-Z0-9_]+) *\)', re.MULTILINE | re.UNICODE)
 
@@ -415,7 +415,7 @@ def CreateCFileContent(BaseName, UniObjectClass, IsCompatibleMode, UniBinBuffer,
     # Create line for string variable name
     # "unsigned char $(BaseName)Strings[] = {"
     #
-    AllStr = WriteLine('', CHAR_ARRAY_DEFIN + ' ' + BaseName + COMMON_FILE_NAME + '[] = {\n')
+    AllStr = WriteLine('', CHAR_ARRAY_DEFINE + ' ' + BaseName + COMMON_FILE_NAME + '[] = {\n')
 
     if IsCompatibleMode:
         #

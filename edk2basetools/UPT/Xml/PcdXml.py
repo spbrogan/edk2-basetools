@@ -118,16 +118,16 @@ class PcdErrorXml(object):
         if HexMatch2:
             for MatchObj in HexMatch2.finditer(ValidRange):
                 MatchStr = MatchObj.group()
-                TransferedRangeStr = ' '.join(['', PcdName, MatchStr.strip()])
-                ValidRange = ValidRange.replace(MatchStr, TransferedRangeStr)
+                TransferredRangeStr = ' '.join(['', PcdName, MatchStr.strip()])
+                ValidRange = ValidRange.replace(MatchStr, TransferredRangeStr)
         #
         # Convert INT2 format range
         #
         if IntMatch2:
             for MatchObj in IntMatch2.finditer(ValidRange):
                 MatchStr = MatchObj.group()
-                TransferedRangeStr = ' '.join(['', PcdName, MatchStr.strip()])
-                ValidRange = ValidRange.replace(MatchStr, TransferedRangeStr)
+                TransferredRangeStr = ' '.join(['', PcdName, MatchStr.strip()])
+                ValidRange = ValidRange.replace(MatchStr, TransferredRangeStr)
         #
         # Convert HEX1 format range
         #
@@ -136,9 +136,9 @@ class PcdErrorXml(object):
 
         for MatchStr in HexMatchedList:
             RangeItemList = MatchStr.strip().split('-')
-            TransferedRangeStr = '(%s GE %s) AND (%s LE %s)' % \
+            TransferredRangeStr = '(%s GE %s) AND (%s LE %s)' % \
                 (PcdName, RangeItemList[0].strip(), PcdName, RangeItemList[1].strip())
-            ValidRange = ValidRange.replace(MatchStr, TransferedRangeStr)
+            ValidRange = ValidRange.replace(MatchStr, TransferredRangeStr)
         #
         # Convert INT1 format range
         #
@@ -147,9 +147,9 @@ class PcdErrorXml(object):
 
         for MatchStr in IntMatchedList:
             RangeItemList = MatchStr.strip().split('-')
-            TransferedRangeStr = '(%s GE %s) AND (%s LE %s)' % \
+            TransferredRangeStr = '(%s GE %s) AND (%s LE %s)' % \
                 (PcdName, RangeItemList[0].strip(), PcdName, RangeItemList[1].strip())
-            ValidRange = ValidRange.replace(MatchStr, TransferedRangeStr)
+            ValidRange = ValidRange.replace(MatchStr, TransferredRangeStr)
 
         return ValidRange
 

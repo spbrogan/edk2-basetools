@@ -154,7 +154,7 @@ class MetaFileParser(object):
         self._Owner = [Owner]
         self._From = From
 
-        # parsr status for parsing
+        # parser status for parsing
         self._ValueList = ['', '', '', '', '']
         self._Scope = []
         self._LineIndex = 0
@@ -1846,16 +1846,16 @@ class DecParser(MetaFileParser):
                 if not Prompt:
                     Prompt = PatternPrompt.findall(Comm)
                 if Comm[0] == '#':
-                    ValidFormt = Comm.lstrip('#')
-                    ValidFormt = ValidFormt.lstrip()
-                    if ValidFormt[0:11] == '@ValidRange':
-                        ValidFormt = ValidFormt[11:]
-                        ValidFormt = ValidFormt.lstrip()
+                    ValidFormat = Comm.lstrip('#')
+                    ValidFormat = ValidFormat.lstrip()
+                    if ValidFormat[0:11] == '@ValidRange':
+                        ValidFormat = ValidFormat[11:]
+                        ValidFormat = ValidFormat.lstrip()
                         try:
-                            ErrorCode, Expression = ValidFormt.split('|', 1)
+                            ErrorCode, Expression = ValidFormat.split('|', 1)
                         except ValueError:
                             ErrorCode = '0x0'
-                            Expression = ValidFormt
+                            Expression = ValidFormat
                         ErrorCode, Expression = ErrorCode.strip(), Expression.strip()
                         try:
                             if not eval(ErrorCodeValid % ErrorCode):
@@ -1864,14 +1864,14 @@ class DecParser(MetaFileParser):
                             EdkLogger.warn('Parser', '@ValidRange ErrorCode(%s) of PCD %s is not valid UINT32 value.' % (ErrorCode, TokenList[0]))
                         if not PatternValidRng.search(Expression):
                             EdkLogger.warn('Parser', '@ValidRange Expression(%s) of PCD %s is incorrect format.' % (Expression, TokenList[0]))
-                    if ValidFormt[0:10] == '@ValidList':
-                        ValidFormt = ValidFormt[10:]
-                        ValidFormt = ValidFormt.lstrip()
+                    if ValidFormat[0:10] == '@ValidList':
+                        ValidFormat = ValidFormat[10:]
+                        ValidFormat = ValidFormat.lstrip()
                         try:
-                            ErrorCode, Expression = ValidFormt.split('|', 1)
+                            ErrorCode, Expression = ValidFormat.split('|', 1)
                         except ValueError:
                             ErrorCode = '0x0'
-                            Expression = ValidFormt
+                            Expression = ValidFormat
                         ErrorCode, Expression = ErrorCode.strip(), Expression.strip()
                         try:
                             if not eval(ErrorCodeValid % ErrorCode):
@@ -1886,14 +1886,14 @@ class DecParser(MetaFileParser):
                             except:
                                 EdkLogger.warn('Parser', '@ValidList Expression of PCD %s include a invalid value(%s).' % (TokenList[0], Value))
                                 break
-                    if ValidFormt[0:11] == '@Expression':
-                        ValidFormt = ValidFormt[11:]
-                        ValidFormt = ValidFormt.lstrip()
+                    if ValidFormat[0:11] == '@Expression':
+                        ValidFormat = ValidFormat[11:]
+                        ValidFormat = ValidFormat.lstrip()
                         try:
-                            ErrorCode, Expression = ValidFormt.split('|', 1)
+                            ErrorCode, Expression = ValidFormat.split('|', 1)
                         except ValueError:
                             ErrorCode = '0x0'
-                            Expression = ValidFormt
+                            Expression = ValidFormat
                         ErrorCode, Expression = ErrorCode.strip(), Expression.strip()
                         try:
                             if not eval(ErrorCodeValid % ErrorCode):

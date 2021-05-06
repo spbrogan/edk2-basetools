@@ -1904,7 +1904,7 @@ def PackByteFormatGUID(Guid):
                 Guid[10],
                 )
 
-## DeepCopy dict/OrderedDict recusively
+## DeepCopy dict/OrderedDict recursively
 #
 #   @param      ori_dict    a nested dict or ordereddict
 #

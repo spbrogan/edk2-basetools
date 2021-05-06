@@ -863,7 +863,7 @@ def GenPcdSections(ModuleObject):
     # For AsBuild INF files
     #
     else:
-        Content += GenAsBuiltPacthPcdSections(ModuleObject)
+        Content += GenAsBuiltPathPcdSections(ModuleObject)
         Content += GenAsBuiltPcdExSections(ModuleObject)
 
     return Content
@@ -871,7 +871,7 @@ def GenPcdSections(ModuleObject):
 ## GenPcdSections
 #
 #
-def GenAsBuiltPacthPcdSections(ModuleObject):
+def GenAsBuiltPathPcdSections(ModuleObject):
     PatchPcdDict = {}
     for BinaryFile in ModuleObject.GetBinaryFileList():
         if not BinaryFile.AsBuiltList:

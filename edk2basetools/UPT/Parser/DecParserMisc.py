@@ -248,7 +248,7 @@ def IsValidPcdDatum(Type, Value):
             return False, Cause
     else:
         if Value and (Value[0] == '-' or Value[0] == '+'):
-            return False, ST.ERR_DECPARSE_PCD_INT_NEGTIVE % (Value, Type)
+            return False, ST.ERR_DECPARSE_PCD_INT_NEGATIVE % (Value, Type)
         try:
             StrVal = Value
             if Value and not Value.startswith('0x') \

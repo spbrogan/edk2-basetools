@@ -90,15 +90,15 @@ def IsValidBoolType(BoolString):
 # @param      ModuleTypeList:  A list contain ModuleType strings need to be
 # judged.
 #
-def IsValidInfMoudleTypeList(ModuleTypeList):
+def IsValidInfModuleTypeList(ModuleTypeList):
     for ModuleType in ModuleTypeList:
-        return IsValidInfMoudleType(ModuleType)
+        return IsValidInfModuleType(ModuleType)
 
 ## Is Valid Module Type or not
 #
 # @param      ModuleType:  A string contain ModuleType need to be judged.
 #
-def IsValidInfMoudleType(ModuleType):
+def IsValidInfModuleType(ModuleType):
     if ModuleType in MODULE_LIST:
         return True
     else:
@@ -464,8 +464,8 @@ def IsValidHexVersion(Word):
 # @param Word:  The BUILD_NUMBER string need to be checked.
 #
 def IsValidBuildNumber(Word):
-    ReIsValieBuildNumber = re.compile(r"[0-9]{1,4}$", re.DOTALL)
-    if ReIsValieBuildNumber.match(Word) is None:
+    ReIsValidBuildNumber = re.compile(r"[0-9]{1,4}$", re.DOTALL)
+    if ReIsValidBuildNumber.match(Word) is None:
         return False
 
     return True

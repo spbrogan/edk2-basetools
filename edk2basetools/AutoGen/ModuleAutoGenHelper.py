@@ -70,7 +70,7 @@ class AutoGenInfo(object):
         if Key in cls.__ObjectCache:
             # if it exists, just return it directly
             return cls.__ObjectCache[Key]
-            # it didnt exist. create it, cache it, then return it
+            # it didn't exist. create it, cache it, then return it
         RetVal = cls.__ObjectCache[Key] = super(AutoGenInfo, cls).__new__(cls)
         return RetVal
 
@@ -102,7 +102,7 @@ class AutoGenInfo(object):
     #   @param  Options     Options to be expanded
     #   @param  ToolDef     Use specified ToolDef instead of full version.
     #                       This is needed during initialization to prevent
-    #                       infinite recursion betweeh BuildOptions,
+    #                       infinite recursion between BuildOptions,
     #                       ToolDefinition, and this function.
     #
     #   @retval options     Options expanded
@@ -195,7 +195,7 @@ class AutoGenInfo(object):
                                 BuildOptions[Tool][Attr] += " " + Options[Key]
                             else:
                                 BuildOptions[Tool][Attr] = Options[Key]
-        # Build Option Family has been checked, which need't to be checked again for family.
+        # Build Option Family has been checked, which need not be checked again for family.
         if FamilyMatch or FamilyIsNull:
             return BuildOptions
 

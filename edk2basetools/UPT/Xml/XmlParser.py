@@ -21,7 +21,7 @@ from edk2basetools.UPT.Library.Xml.XmlRoutines import XmlList
 from edk2basetools.UPT.Library.Xml.XmlRoutines import XmlParseFile
 from edk2basetools.UPT.Core.DistributionPackageClass import DistributionPackageClass
 from edk2basetools.UPT.Object.POM.ModuleObject import DepexObject
-from edk2basetools.UPT.Library.ParserValidate import IsValidInfMoudleType
+from edk2basetools.UPT.Library.ParserValidate import IsValidInfModuleType
 from edk2basetools.UPT.Library.ParserValidate import IsValidInstallPath
 from edk2basetools.UPT.Library.Misc import IsEqualList
 from edk2basetools.UPT.Library.Misc import Sdict
@@ -31,7 +31,7 @@ from edk2basetools.UPT.Logger.StringTable import ERR_XML_INVALID_LIB_SUPMODLIST
 from edk2basetools.UPT.Logger.StringTable import ERR_XML_INVALID_EXTERN_SUPARCHLIST
 from edk2basetools.UPT.Logger.StringTable import ERR_XML_INVALID_EXTERN_SUPMODLIST
 from edk2basetools.UPT.Logger.StringTable import ERR_XML_INVALID_EXTERN_SUPMODLIST_NOT_LIB
-from edk2basetools.UPT.Logger.StringTable import ERR_FILE_NAME_INVALIDE
+from edk2basetools.UPT.Logger.StringTable import ERR_FILE_NAME_INVALID
 from edk2basetools.UPT.Logger.ToolError import PARSER_ERROR
 from edk2basetools.UPT.Logger.ToolError import FORMAT_INVALID
 
@@ -476,7 +476,7 @@ def ValidateMS2(Module, TopXmlTreeLevel):
     IsRequiredItemListNull(CheckDict, XmlTreeLevel)
 
     if not IsValidInstallPath(Module.GetModulePath()):
-        Logger.Error("UPT", FORMAT_INVALID, ERR_FILE_NAME_INVALIDE % Module.GetModulePath())
+        Logger.Error("UPT", FORMAT_INVALID, ERR_FILE_NAME_INVALID % Module.GetModulePath())
 
     #
     # Check ModuleProperties->BootMode
@@ -556,7 +556,7 @@ def ValidateMS2(Module, TopXmlTreeLevel):
         #
         if len(Item.SupModuleList) > 0:
             for SupModule in Item.SupModuleList:
-                if not IsValidInfMoudleType(SupModule):
+                if not IsValidInfModuleType(SupModule):
                     Logger.Error('\nUPT',
                                  PARSER_ERROR,
                                  ERR_XML_INVALID_LIB_SUPMODLIST % (Item.LibraryClass, str(SupModule)),
@@ -759,7 +759,7 @@ def ValidatePS1(Package):
 
     IsRequiredItemListNull(CheckDict, XmlTreeLevel)
     if not IsValidInstallPath(Package.GetPackagePath()):
-        Logger.Error("UPT", FORMAT_INVALID, ERR_FILE_NAME_INVALIDE % Package.GetPackagePath())
+        Logger.Error("UPT", FORMAT_INVALID, ERR_FILE_NAME_INVALID % Package.GetPackagePath())
 
     #
     # Check DistributionPackage -> PackageSurfaceArea -> ClonedFrom

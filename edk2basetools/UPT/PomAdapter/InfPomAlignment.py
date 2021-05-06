@@ -155,7 +155,7 @@ class InfPomAlignment(ModuleObject):
             ModuleRelativePath = GetRelativePath(ModulePath, self.GetPackagePath())
         self.SetModulePath(ModuleRelativePath)
         #
-        # For Define Seciton Items.
+        # For Define Section Items.
         #
         DefineObj = ValueList
         #
@@ -910,7 +910,7 @@ class InfPomAlignment(ModuleObject):
                 if (PcdItemObj.GetToken() == '' or PcdItemObj.GetDatumType() == '') and self.BinaryModule:
                     Logger.Error("\nMkPkg",
                                  PARSER_ERROR,
-                                 ST.ERR_ASBUILD_PCD_DECLARITION_MISS % \
+                                 ST.ERR_ASBUILD_PCD_DECLARATION_MISS % \
                                  (PcdItemObj.GetTokenSpaceGuidCName() + '.' + PcdItemObj.GetCName()),
                                  self.GetFullPath(), RaiseError=True)
                 Pcd.SetToken(PcdItemObj.GetToken())
